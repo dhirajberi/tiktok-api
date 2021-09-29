@@ -25,7 +25,7 @@ def papers(username):
     driver = webdriver.Chrome(ChromeDriverManager().install(),options=options)
 
     #THIS PRETTY MUCH TELLS THE WEB BROWSER WHICH WEBSITE TO GO TO
-    driver.get('https://tokcounter.com/?user={username}')
+    driver.get(f'https://tokcounter.com/?user={username}')
 
     #THIS IS THE IMPORTANT PART SO I'LL BREAK IT DOWN IN A COUPLE DIFFERENT PARTS LOL
 
@@ -35,7 +35,7 @@ def papers(username):
     #IN THIS VARIABLE
     # time.sleep(3)
     # driver.find_element_by_xpath('//*[@id="__next"]/div/div/div[2]/button').click()
-    time.sleep(5)
+    time.sleep(10)
     FOLLOWERS = driver.find_element_by_xpath('//*[@id="__next"]/div/div/div[4]/div[1]/div').text
 
     #PRINTS OUT THE DATA PULLED FROM ABOVE
