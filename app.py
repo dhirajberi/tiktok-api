@@ -24,7 +24,7 @@ def papers(username):
     #THIS INITIALIZES THE DRIVER (AKA THE WEB BROWSER)
     options = webdriver.ChromeOptions()
     options.headless = True
-    driver = webdriver.Chrome(ChromeDriverManager().install())
+    driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
 
     #THIS PRETTY MUCH TELLS THE WEB BROWSER WHICH WEBSITE TO GO TO
     driver.get(f'https://socialblade.com/tiktok/user/{username}')
