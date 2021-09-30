@@ -27,25 +27,31 @@ def papers(username):
     #THIS PRETTY MUCH TELLS THE WEB BROWSER WHICH WEBSITE TO GO TO
     driver.get(f'https://tokcounter.com/?user={username}')
 
-    #THIS IS THE IMPORTANT PART SO I'LL BREAK IT DOWN IN A COUPLE DIFFERENT PARTS LOL
-
-    #THIS 'TEXT' PORTION         |       THIS PORTION WILL TAKE THE ELEMENT THAT
-    #PRETTY MUCH STORES THE      |       WE WANT FROM THE WEBSITE, THE .TEXT WILL
-    #WEBSITE DATA THAT WE WANT   |       SAVE THE INFORMATION AS A TEXT DOCUMENT
-    #IN THIS VARIABLE
-    # time.sleep(3)
-    # driver.find_element_by_xpath('//*[@id="__next"]/div/div/div[2]/button').click()
-    time.sleep(10)
+    time.sleep(5)
     FOLLOWERS = driver.find_element_by_xpath('//*[@id="__next"]/div/div/div[4]/div[1]/div').text
-
-    #PRINTS OUT THE DATA PULLED FROM ABOVE
-    a=FOLLOWERS.split('\n')
-    followers="".join(a)
+    LIKES = driver.find_element_by_xpath('//*[@id="__next"]/div/div/div[4]/div[2]/div[1]/div/div/div').text
+    FOLLOWING = driver.find_element_by_xpath('//*[@id="__next"]/div/div/div[4]/div[2]/div[2]/div/div/div/span/span[2]/span/span/span').text
+    UPLOADS = driver.find_element_by_xpath('//*[@id="__next"]/div/div/div[4]/div[2]/div[3]/div/div/div').text
     
+    #PRINTS OUT THE DATA PULLED FROM ABOVE
+    followers=FOLLOWERS.split('\n')
+    followers="".join(followers)
+    
+    likes = LIKES.split('\n')
+    likes="".join(likes)
+
+    following = FOLLOWING.split('\n')
+    following="".join(following)
+
+    uploads = UPLOADS.split('\n')
+    uploads="".join(uploads)
+
     details = {
         "Username": username,
         "Live Followers": followers,
-        # "Upload": uploads,
+        "Likes":likes,
+        "Following":following,
+        "Uploads": uploads,
         # "Followers Rank": followers_rank
     }
 
